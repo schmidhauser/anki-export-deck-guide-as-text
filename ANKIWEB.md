@@ -2,7 +2,7 @@ Systematically organized Anki collections often encode substantial information i
 
 The deck **Description** provides a natural place for such documentation, as it is attached directly to the deck it describes, can be inspected and edited within Anki, and always stays with the collection. This add-on exports all non-empty descriptions as structured text, either to the clipboard or to a file. Each description is associated with the deck’s full path and marked according to whether Anki uses Markdown (“Anki 2.1.41+ handling”) or legacy HTML handling for it. The exported text can serve as a collection-wide deck guide for inspection and, above all, for use as context for an LLM.
 
-**Export Deck Guide as Text** complements **[Export Deck Tree as Text](https://ankiweb.net/shared/info/1358364553)**, **[Export Field and Tag Legend as Text](https://ankiweb.net/shared/info/1931887561)**, **[Export Note Types as Text](https://ankiweb.net/shared/info/1033830704)**, and **[Export Tags as Text](https://ankiweb.net/shared/info/550673409)**. Together, these five add-ons provide collection-level context. In the Browser, **[Selected Notes to Structured Text](https://ankiweb.net/shared/info/1694585841)** supplies the selected notes to which that context can be applied, whether for assessment or as exemplars for note generation.
+**[Export Deck Guide as Text](https://ankiweb.net/shared/info/1938515620)** complements **[Export Deck Tree as Text](https://ankiweb.net/shared/info/1358364553)**, **[Export Field and Tag Legend as Text](https://ankiweb.net/shared/info/1931887561)**, **[Export Note Types as Text](https://ankiweb.net/shared/info/1033830704)**, and **[Export Tags as Text](https://ankiweb.net/shared/info/550673409)**. Together, these five add-ons provide collection-level context. In the Browser, **[Selected Notes to Structured Text](https://ankiweb.net/shared/info/1694585841)** supplies the selected notes to which that context can be applied, whether for assessment or as exemplars for note generation.
 
 ## Usage
 
@@ -44,13 +44,17 @@ The export begins with the number of deck descriptions exported and a short expl
 
     Deck descriptions exported: 2
 
-    Each `<@anki-deck>` block contains the description stored for one normal Anki deck with a non-empty description, with leading and trailing whitespace removed. The `format` attribute records whether Anki uses Markdown or legacy HTML handling for that description.
+    Each `<@anki-deck>` block contains the description stored for one normal
+    Anki deck with a non-empty description, with leading and trailing whitespace
+    removed. The `format` attribute records whether Anki uses Markdown or legacy
+    HTML handling for that description.
 
     <@anki-deck name="2.HEL"@>
     <@anki-description format="markdown"@>
     # 2.HEL – Hellenic
 
-    This branch contains all Greek material. It is organized by **evidence layer** – prehistoric, …
+    This branch contains all Greek material. It is organized by **evidence layer**
+    – prehistoric, Mycenaean, alphabetic polytonic, alphabetic monotonic…
     </@anki-description@>
     </@anki-deck@>
 

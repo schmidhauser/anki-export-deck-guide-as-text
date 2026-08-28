@@ -8,7 +8,7 @@ The deck **Description** provides a natural place for such documentation, as it 
 
 ## Installation
 
-Install **Export Deck Guide as Text** from [AnkiWeb](https://ankiweb.net/shared/info/xxx) using add-on code `xxx`.
+Install **Export Deck Guide as Text** from [AnkiWeb](https://ankiweb.net/shared/info/1938515620) using add-on code `1938515620`.
 
 ## Usage
 
@@ -59,13 +59,17 @@ The export begins with the number of deck descriptions exported and a short expl
 
 Deck descriptions exported: 2
 
-Each `<@anki-deck>` block contains the description stored for one normal Anki deck with a non-empty description, with leading and trailing whitespace removed. The `format` attribute records whether Anki uses Markdown or legacy HTML handling for that description.
+Each `<@anki-deck>` block contains the description stored for one normal
+Anki deck with a non-empty description, with leading and trailing whitespace
+removed. The `format` attribute records whether Anki uses Markdown or legacy
+HTML handling for that description.
 
 <@anki-deck name="2.HEL"@>
 <@anki-description format="markdown"@>
 # 2.HEL – Hellenic
 
-This branch contains all Greek material. It is organized by **evidence layer** – prehistoric, …
+This branch contains all Greek material. It is organized by **evidence layer**
+– prehistoric, Mycenaean, alphabetic polytonic, alphabetic monotonic…
 </@anki-description@>
 </@anki-deck@>
 
