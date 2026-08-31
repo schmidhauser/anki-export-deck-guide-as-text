@@ -1,8 +1,8 @@
-Systematically organized Anki collections often encode substantial information in their deck names and hierarchies through abbreviations, numbering, and local conventions. While a deck tree can show the existence of a full deck path such as `2.HEL::2.GRC::4.CAT::2.PRO::1.PHS::2.Ar.`, it does not by itself explain what the abbreviations mean, why the hierarchy is divided as it is, or what belongs in each branch.
+Systematically organized Anki collections often encode substantial information in their deck names and hierarchies. However, a deck path such as `2.HEL::2.GRC::4.CAT::2.PRO::1.PHS::2.Ar.` is difficult to interpret without knowing what the abbreviations stand for, why the decks are arranged as they are, and what each branch is meant to contain. The deck **Description** provides a natural place for such documentation: it belongs to the deck it describes, can be read and edited within Anki, and remains with the collection.
 
-The deck **Description** provides a natural place for such documentation, as it is attached directly to the deck it describes, can be inspected and edited within Anki, and always stays with the collection. This add-on exports all non-empty descriptions as structured text, either to the clipboard or to a file. Each description is associated with the deck’s full path and marked according to whether Anki uses Markdown (“Anki 2.1.41+ handling”) or legacy HTML handling for it. The exported text can serve as a collection-wide deck guide for inspection and, above all, for use as context for an LLM.
+This add-on exports all non-empty descriptions as structured text, either to the clipboard or to a file. For each entry, it records the deck’s full path and indicates whether Anki treats the description as Markdown or HTML. The resulting export can serve as a guide to the collection’s organization, useful for inspection and—above all—as context for an LLM.
 
-**[Export Deck Guide as Text](https://ankiweb.net/shared/info/1938515620)** complements **[Export Deck Tree as Text](https://ankiweb.net/shared/info/1358364553)**, **[Export Field and Tag Legend as Text](https://ankiweb.net/shared/info/1931887561)**, **[Export Note Types as Text](https://ankiweb.net/shared/info/1033830704)**, and **[Export Tags as Text](https://ankiweb.net/shared/info/550673409)**. Together, these five add-ons provide collection-level context. In the Browser, **[Selected Notes to Structured Text](https://ankiweb.net/shared/info/1694585841)** supplies the selected notes to which that context can be applied, whether for assessment or as exemplars for note generation.
+**[Export Deck Guide as Text](https://ankiweb.net/shared/info/1938515620)** complements **[Export Deck Tree as Text](https://ankiweb.net/shared/info/1358364553)**, **[Export Field and Tag Legend as Text](https://ankiweb.net/shared/info/1931887561)**, **[Export Note Types as Text](https://ankiweb.net/shared/info/1033830704)**, and **[Export Tags as Text](https://ankiweb.net/shared/info/550673409)**. Together, these five add-ons provide collection-level context. In the Browser, **[Selected Notes to Structured Text](https://ankiweb.net/shared/info/1694585841)** makes the selected notes available for assessment in that context or as exemplars for note generation.
 
 ## Usage
 
@@ -15,9 +15,9 @@ Choose either of the following menu items:
 
 Both commands export the same collection-wide deck guide: **Copy Deck Guide as Text** places it on the clipboard; **Save Deck Guide as Text…** writes it to a UTF-8 text file, by default named `anki-deck-guide-YYYY-MM-DD.txt`.
 
-The export contains normal decks only: filtered decks are excluded, and decks with empty descriptions are omitted. Descriptions remain in Anki’s deck ordering.
+The export contains normal decks only: filtered decks are excluded, and decks with empty descriptions are omitted. Descriptions are exported in Anki’s deck order.
 
-Deck descriptions can be edited in Anki’s **Description** window. With **Anki 2.1.41+ handling** enabled, the description is stored as Markdown and rendered by Anki accordingly.
+Deck descriptions can be edited in Anki’s **Description** window. With **Markdown** enabled, the description is stored as Markdown and rendered by Anki accordingly.
 
 <p>
     <img src="https://raw.githubusercontent.com/schmidhauser/anki-export-deck-guide-as-text/refs/heads/main/export-deck-guide-as-text-2.png" alt="Markdown deck description and its rendered Anki display" width="1000">
@@ -46,8 +46,8 @@ The export begins with the number of deck descriptions exported and a short expl
 
     Each `<@anki-deck>` block contains the description stored for one normal
     Anki deck with a non-empty description, with leading and trailing whitespace
-    removed. The `format` attribute records whether Anki uses Markdown or legacy
-    HTML handling for that description.
+    removed. The `format` attribute records whether Anki uses Markdown or HTML
+    for that description.
 
     <@anki-deck name="2.HEL"@>
     <@anki-description format="markdown"@>
@@ -62,15 +62,15 @@ The export begins with the number of deck descriptions exported and a short expl
     <@anki-description format="markdown"@>
     # 0.PHG – PREHISTORIC GREEK
 
-    `0.PHG` contains **pre-alphabetic / reconstructed / analytic** material used…
+    `0.PHG` contains **reconstructed** material used…
     </@anki-description@>
     </@anki-deck@>
 
-The `name` attribute records the deck's full path as identified by Anki. The `format` attribute is `markdown` when **Anki 2.1.41+ handling** is enabled for that description and `html` when Anki uses the legacy handling.
+The `name` attribute records the deck’s full path as identified by Anki. The `format` attribute is `markdown` when **Markdown** is enabled for that description and `html` otherwise.
 
-Leading and trailing whitespace is removed from each description; internal text, line breaks, Markdown, HTML, links, Unicode, and other content are otherwise preserved.
+Leading and trailing whitespace is removed from each description; internal whitespace, Markdown, HTML, links, Unicode characters, and other content are otherwise preserved.
 
-The `<@…@>` delimiters make deck and description boundaries explicit without requiring the description contents themselves to be transformed. The format is intended to be straightforward for both humans and LLMs to inspect and parse.
+The `<@…@>` delimiters make deck and description boundaries explicit without requiring the description contents themselves to be transformed. The format is intended to be straightforward for humans to inspect and for LLMs to parse.
 
 ## Compatibility
 
